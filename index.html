@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form method="post" action="./form.php">
+		<!--在createIdentifyingCode.php?添加r=echo rand()是为了防止取缓存.r可以替换成任意变量-->
+      <p>验证码: <img id="captcha_img" border='1' src='./createIdentifyingCode.php?r=echo rand(); ?>' style="width:100px; height:30px">
+        <a href="javascript:void(0)" onclick="document.getElementById('captcha_img').src='./createIdentifyingCode.php?r='+Math.random()">换一个? </a>
+      </p>
+      <p>请输入验证码:<input type="text" name='authcode' value=''/></p>
+      <p><input type='submit' value='提交' style='padding:6px 5px;'></p>
+  </form>
+  <?php echo rand(0,9); ?>
+</body>
+</html>
